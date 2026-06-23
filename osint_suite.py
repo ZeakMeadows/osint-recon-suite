@@ -86,7 +86,7 @@ class OSINTReconSuite:
             self.results["findings"]["holehe"] = {"error": str(e)}
             print(f"[-] Holehe error: {e}")
     
-    def check_breaches(self):
+    def check_breaches_api(self):
         """Check Have I Been Pwned for email breaches"""
         if not self.check_breaches or self.target_type != "email":
             return
@@ -221,7 +221,7 @@ class OSINTReconSuite:
             self.run_sherlock()
         elif self.target_type == "email":
             self.run_holehe()
-            self.check_breaches()
+            self.check_breaches_api()
         elif self.target_type == "domain":
             self.run_theharvester()
         
